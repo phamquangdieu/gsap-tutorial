@@ -1,0 +1,6 @@
+.box {
+    height: 200px;
+    background: linear-gradient(to right, #e4f341, #02f102);
+    border-radius: 20px;
+    width: 200px;
+}
