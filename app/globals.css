@@ -24,3 +24,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.cloneText {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
