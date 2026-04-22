@@ -10,16 +10,18 @@ gsap.config({ trialWarn: false } as any);
 const RollingPage = () => {
     const ref = useRef<HTMLDivElement>(null);
     useGSAP(() => {
-        const repeatCount = 8;
+        const repeatCount = 9;
         const tl = gsap.timeline({ paused: true });
         const split = new SplitText('.rolling-text', { type: "chars" });
         split.chars.forEach((obj, i) => {
-            console.log(obj);
+            if (i !== 0) return;
+            console.log(obj.childNodes);
             
             let txt = (obj as HTMLElement).innerText;
-            let clone = `<div class="cloneText"> ${txt} </div>`;
-            let newHTML = `<div class="originalText"> ${txt} </div>${clone}`;
-            obj.innerHTML = newHTML;
+            let addHtml = `<div class="originalText"> ${txt} </div><div class="cloneText"> ${txt} </div>`;
+            obj.innerHTML = addHtml;
+            console.log(obj.childNodes[1]);
+            
             gsap.set(obj.childNodes[1], {
                 yPercent: i % 2 === 0 ? -100 : 100
             });
